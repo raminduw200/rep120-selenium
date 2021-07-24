@@ -1,3 +1,8 @@
+import time
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
@@ -5,11 +10,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
-import time
-
-import os
-from os.path import join, dirname
-from dotenv import load_dotenv
 
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
@@ -42,8 +42,10 @@ def rep120_selenium(course_no_):
         # ----------------------- Firefox -----------------------
         binary = FirefoxBinary('/usr/bin/firefox')
         driver = webdriver.Firefox(firefox_binary=binary)
-        driver.get("https://ugvle.ucsc.cmb.ac.lk/course/view.php?id=96")
         # ------------------------------------------------------
+
+        # Load the course page
+        driver.get(f"https://ugvle.ucsc.cmb.ac.lk/course/view.php?id={course_id}")
 
         # Login options
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
@@ -52,10 +54,8 @@ def rep120_selenium(course_no_):
         driver.find_element_by_id('loginbtn').click()
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-        # Load course pages and scroll down
-        driver.get("https://ugvle.ucsc.cmb.ac.lk/course/view.php?id={course_id}".format(course_id=course_id))
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(30)
         driver.quit()
-        print(f"[SUCCESS] Visit the {course_no_} page!")
+        print(f"[SUCCESS] Visited the {course_no_} page!")
     else:
         print("[ERROR] COURSE ID NOT FOUND")
