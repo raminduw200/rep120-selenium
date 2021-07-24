@@ -34,11 +34,11 @@ def schedule_timetable():
         for time_, subj_ in zip(day_courses['-'], day_courses[today]):
             schedule.every().friday.at(time_).do(rep120, str(int(subj_)))
             print(f"{time_} : {subj_} : {type(subj_)}")
-    elif week_no == 5:
-        for time_, subj_ in zip(day_courses['-'], day_courses[today]):
-            schedule.every().saturday.at(time_).do(rep120, str(int(subj_)))
-            print(f"{time_} : {subj_} : {type(subj_)}")
-    elif week_no == 6:
-        for time_, subj_ in zip(day_courses['-'], day_courses[today]):
-            schedule.every().sunday.at(time_).do(rep120, str(int(subj_)))
-            print(f"{time_} : {subj_} : {type(subj_)}")
+    # elif week_no == 5:
+    #     for time_, subj_ in zip(day_courses['-'], day_courses[today]):
+    #         schedule.every().saturday.at(time_).do(rep120, str(int(subj_)))
+    #         print(f"{time_} : {subj_} : {type(subj_)}")
+    # elif week_no == 6:
+    #     for time_, subj_ in zip(day_courses['-'], day_courses[today]):
+    #         schedule.every().sunday.at(time_).do(rep120, str(int(subj_)))
+    #         print(f"{time_} : {subj_} : {type(subj_)}")
