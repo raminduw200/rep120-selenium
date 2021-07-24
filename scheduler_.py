@@ -16,38 +16,29 @@ day_courses = day_courses.dropna(subset=['-', today])
 def schedule_timetable():
     if week_no == 0:
         for time_, subj_ in zip(day_courses['-'], day_courses[today]):
-            schedule.every().monday.at(time_).do(rep120, subj_)
-            print(f"{time_} : {subj_}")
+            schedule.every().monday.at(time_).do(rep120, str(int(subj_)))
+            print(f"{time_} : {subj_} : {type(subj_)}")
     elif week_no == 1:
         for time_, subj_ in zip(day_courses['-'], day_courses[today]):
-            schedule.every().tuesday.at(time_).do(rep120, subj_)
-            print(f"{time_} : {subj_}")
+            schedule.every().tuesday.at(time_).do(rep120, str(int(subj_)))
+            print(f"{time_} : {subj_} : {type(subj_)}")
     elif week_no == 2:
         for time_, subj_ in zip(day_courses['-'], day_courses[today]):
-            schedule.every().wednesday.at(time_).do(rep120, subj_)
-            print(f"{time_} : {subj_}")
+            schedule.every().wednesday.at(time_).do(rep120, str(int(subj_)))
+            print(f"{time_} : {subj_} : {type(subj_)}")
     elif week_no == 3:
         for time_, subj_ in zip(day_courses['-'], day_courses[today]):
-            schedule.every().thursday.at(time_).do(rep120, subj_)
-            print(f"{time_} : {subj_}")
+            schedule.every().thursday.at(time_).do(rep120, str(int(subj_)))
+            print(f"{time_} : {subj_} : {type(subj_)}")
     elif week_no == 4:
         for time_, subj_ in zip(day_courses['-'], day_courses[today]):
-            schedule.every().friday.at(time_).do(rep120, subj_)
-            print(f"{time_} : {subj_}")
+            schedule.every().friday.at(time_).do(rep120, str(int(subj_)))
+            print(f"{time_} : {subj_} : {type(subj_)}")
     elif week_no == 5:
         for time_, subj_ in zip(day_courses['-'], day_courses[today]):
-            schedule.every().saturday.at(time_).do(rep120, subj_)
-            print(f"{time_} : {subj_}")
+            schedule.every().saturday.at(time_).do(rep120, str(int(subj_)))
+            print(f"{time_} : {subj_} : {type(subj_)}")
     elif week_no == 6:
         for time_, subj_ in zip(day_courses['-'], day_courses[today]):
-            schedule.every().sunday.at(time_).do(rep120, subj_)
-            print(f"{time_} : {subj_}")
-
-
-while True:
-    schedule.run_pending()
-    if not schedule.jobs:
-        break
-    time.sleep(1)
-
-# print(df.loc[df.columns[0] < curent])
+            schedule.every().sunday.at(time_).do(rep120, str(int(subj_)))
+            print(f"{time_} : {subj_} : {type(subj_)}")
