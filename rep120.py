@@ -17,7 +17,8 @@ load_dotenv(dotenv_path)
 USER_NAME = os.environ.get("USER_NAME")
 PASSWORD = os.environ.get("PASSWORD")
 
-courses = [{"ENH": 96}, {"1201": 97}, {"1202": 98}, {"1203": 99}, {"1204": 100},
+# 1200 = ENH 1201
+courses = [{"1200": 96}, {"1201": 97}, {"1202": 98}, {"1203": 99}, {"1204": 100},
            {"1205": 101}, {"1206": 102}, {"1207": 220}, {"PP": 86}]
 
 
