@@ -1,4 +1,5 @@
 import time
+import datetime
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
@@ -57,6 +58,6 @@ def rep120_selenium(course_no_):
 
         time.sleep(30)
         driver.quit()
-        print(f"[SUCCESS] Visited the {course_no_} page!")
+        print(f"{datetime.datetime.now()} : [SUCCESS] Visited the {course_no_} page!")
     else:
         print("[ERROR] COURSE ID NOT FOUND")
